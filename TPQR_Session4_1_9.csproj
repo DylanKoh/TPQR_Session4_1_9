@@ -55,8 +55,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMain.Designer.cs">
+      <DependentUpon>AdminMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Assign_Training.cs">
       <DependentUpon>Session4Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpertMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpertMain.Designer.cs">
+      <DependentUpon>ExpertMain.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -87,12 +99,24 @@
     <Compile Include="Training_Module.cs">
       <DependentUpon>Session4Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpdateCompetitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateCompetitor.Designer.cs">
+      <DependentUpon>UpdateCompetitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>Session4Model.tt</DependentUpon>
     </Compile>
     <Compile Include="User_Type.cs">
       <DependentUpon>Session4Model.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminMain.resx">
+      <DependentUpon>AdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpertMain.resx">
+      <DependentUpon>ExpertMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

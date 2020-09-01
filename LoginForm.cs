@@ -44,7 +44,49 @@ namespace TPQR_Session4_1_9
         {
             using (var context = new Session4Entities())
             {
-                
+                if (string.IsNullOrWhiteSpace(txtUserID.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+                {
+                    MessageBox.Show("Please check your fields!", "Empty Field(s)", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    var findUser = (from x in context.Users
+                                    where x.userId == txtUserID.Text
+                                    select x).FirstOrDefault();
+                    if (findUser == null)
+                    {
+                        MessageBox.Show("User does not exist!", "Invalid User", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                    else if (findUser.passwd != txtPassword.Text)
+                    {
+                        MessageBox.Show("User ID or Password does not match our DB!", "Invalid Login", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Welcome {findUser.name}!", "Login", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        if (findUser.userTypeIdFK == 2)
+                        {
+                            Hide();
+                            (new ExpertMain()).ShowDialog();
+                            Close();
+                        }
+                        else if (findUser.userTypeIdFK == 3)
+                        {
+                            Hide();
+
+                            Close();
+                        }
+                        else
+                        {
+                            Hide();
+                            (new AdminMain()).ShowDialog();
+                            Close();
+                        }
+                    }
+                }
             }
         }
 
