@@ -16,5 +16,30 @@ namespace TPQR_Session4_1_9
         {
             InitializeComponent();
         }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            using (var context = new Session4Entities())
+            {
+
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            using (var context = new Session4Entities())
+            {
+
+            }
+        }
+
+        private void txtFilePath_DoubleClick(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                txtFilePath.Text = ofd.FileName;
+            }
+        }
     }
 }
