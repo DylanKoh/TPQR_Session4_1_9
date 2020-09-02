@@ -57,23 +57,43 @@ namespace TPQR_Session4_1_9
                                            select x).ToList();
                 var competitorRow = new List<string>() { "Competitor" };
                 var expertRow = new List<string>() { "Expert" };
-
+                var expertCompleted = new List<string>() { "Completed" };
+                var expertInProcess = new List<string>() { "In Process" };
+                var expertNotStarted = new List<string>() { "Not Started" };
+                var competitorCompleted = new List<string>() { "Completed" };
+                var competitorInProcess = new List<string>() { "In Process" };
+                var competitorNotStarted = new List<string>() { "Not Started" };
                 var getDistinctMonths = (from x in getAssignedTraining
+                                         where x.User.skillIdFK == getSkillID
+                                         orderby x.startDate
                                          select x.startDate.ToString("MM/yyyy")).Distinct();
+                var getDistinctModule = (from x in getAssignedTraining
+                                         select x.moduleIdFK).Distinct();
                 dataGridView1.ColumnCount = getDistinctMonths.Count() + 1;
+                expertProgress.ColumnCount = getDistinctModule.Count() + 1;
+                competitorProgress.ColumnCount = getDistinctModule.Count() + 1;
+                dataGridView1.Columns[0].HeaderText = "Trainee Category";
+                expertProgress.Columns[0].HeaderText = "Status (Expert)";
+                competitorProgress.Columns[0].HeaderText = "Status (Competitor)";
                 int i = 1;
+                int ie = 1;
+                int ic = 1;
                 foreach (var item in getDistinctMonths)
                 {
                     dataGridView1.Columns[i].HeaderText = $"No. Of Modules Start in {item}";
                     var getCountExpert = (from x in getAssignedTraining
-                                          where x.User.userTypeIdFK == 2 && x.startDate.ToString("MM/yyyy") == item
-                                          select x).Count();
+                                          where x.User.userTypeIdFK == 2 && x.startDate.ToString("MM/yyyy") == item && x.User.skillIdFK == getSkillID
+                                          select x.Training_Module).Distinct().Count();
                     expertRow.Add(getCountExpert.ToString());
                     var getCountCompetitors = (from x in getAssignedTraining
-                                               where x.User.userTypeIdFK == 3 && x.startDate.ToString("MM/yyyy") == item
-                                               select x).Count();
+                                               where x.User.userTypeIdFK == 3 && x.startDate.ToString("MM/yyyy") == item && x.User.skillIdFK == getSkillID
+                                               select x.Training_Module).Distinct().Count();
                     competitorRow.Add(getCountCompetitors.ToString());
                     i += 1;
+
+                }
+                foreach (var item in getDistinctModule)
+                {
 
                 }
                 dataGridView1.Rows.Add(competitorRow.ToArray());
