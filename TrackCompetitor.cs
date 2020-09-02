@@ -76,9 +76,9 @@ namespace TPQR_Session4_1_9
                 {
                     foreach (DataGridViewColumn cell in dataGridView1.Columns)
                     {
-                        if (dataGridView1.[cell.Index, row.Index].Value.ToString() == "0")
+                        if (dataGridView1[cell.Index, row.Index].Value.ToString() == "0")
                         {
-                            dataGridView1.[cell.Index, row.Index].Style.BackColor = Color.Red;
+                            dataGridView1[cell.Index, row.Index].Style.BackColor = Color.Red;
                         }
                     }
                 }
