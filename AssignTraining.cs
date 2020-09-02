@@ -102,9 +102,22 @@ namespace TPQR_Session4_1_9
                                  where x.moduleName + " ("  + x.durationDays + " days)" == cbTrainingModule.SelectedItem.ToString()
                                  select x).FirstOrDefault();
                 var endDuration = dtpStart.Value.AddDays(getModule.durationDays);
+                var boolCheck = true;
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (Convert.ToInt32(dataGridView1[4, row.Index].Value) == getModule.moduleId)
+                    {
+                        boolCheck = false;
+                    }
+                }
                 if (endDuration > endDate)
                 {
                     MessageBox.Show("Unable to assign training as date will be after start of competition!",
+                        "Assign Training", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (boolCheck == false)
+                {
+                    MessageBox.Show("Unable to add duplicate!",
                         "Assign Training", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
