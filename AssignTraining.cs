@@ -75,27 +75,22 @@ namespace TPQR_Session4_1_9
                                    where x.userTypeName == cbTrainingCat.SelectedItem.ToString()
                                    select x.userTypeId).FirstOrDefault();
 
-                var findRelevantModules = (from x in context.Training_Module
-                                             where x.skillIdFK == getSkillID && x.userTypeIdFK == getCategory
-                                             select x.moduleId).ToList();
-                var getAssignedModules = (from x in context.Assign_Training
-                                          where x.User.skillIdFK == getSkillID && x.User.userTypeIdFK == getCategory
-                                          select x.moduleIdFK);
-                foreach (var item in getAssignedModules)
+                var findUnassignedModules = (from x in context.Training_Module
+                                             where x.skillIdFK == getSkillID && x.userTypeIdFK == getCategory && x.Assign_Training.Count == 0
+                                             select x);
+                foreach (var item in findUnassignedModules)
                 {
-                    if (findRelevantModules.Contains(item))
-                    {
-                        findRelevantModules.Remove(item);
-                    }
-                }
-                foreach (var item in findRelevantModules)
-                {
-                    var getModuleName = (from x in context.Training_Module
-                                         where x.moduleId == item
-                                         select x.moduleName).FirstOrDefault();
-                    cbTrainingModule.Items.Add(getModuleName);
+                    cbTrainingModule.Items.Add($"{item.moduleName} ({item.durationDays} days)");
                 }
 
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            using (var context  = new Session4Entities())
+            {
+                
             }
         }
     }
