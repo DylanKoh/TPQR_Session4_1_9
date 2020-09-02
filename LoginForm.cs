@@ -77,7 +77,7 @@ namespace TPQR_Session4_1_9
                         else if (findUser.userTypeIdFK == 3)
                         {
                             Hide();
-
+                            (new UpdateCompetitor()).ShowDialog();
                             Close();
                         }
                         else

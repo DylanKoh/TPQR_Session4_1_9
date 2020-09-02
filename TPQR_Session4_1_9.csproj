@@ -61,6 +61,12 @@
     <Compile Include="AdminMain.Designer.cs">
       <DependentUpon>AdminMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssignTraining.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignTraining.Designer.cs">
+      <DependentUpon>AssignTraining.cs</DependentUpon>
+    </Compile>
     <Compile Include="Assign_Training.cs">
       <DependentUpon>Session4Model.tt</DependentUpon>
     </Compile>
@@ -113,6 +119,9 @@
     </Compile>
     <EmbeddedResource Include="AdminMain.resx">
       <DependentUpon>AdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssignTraining.resx">
+      <DependentUpon>AssignTraining.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExpertMain.resx">
       <DependentUpon>ExpertMain.cs</DependentUpon>

@@ -16,5 +16,24 @@ namespace TPQR_Session4_1_9
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Hide();
+            (new LoginForm()).ShowDialog();
+            Close();
+        }
+
+        private void btnAssignTraining_Click(object sender, EventArgs e)
+        {
+            Hide();
+            (new AssignTraining()).ShowDialog();
+            Close();
+        }
+
+        private void btnTrackOverall_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
