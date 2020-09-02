@@ -38,6 +38,9 @@ namespace TPQR_Session4_1_9
                     context.Users.Add(newUser);
                 }
                 context.SaveChanges();
+                MessageBox.Show("Successfully added users!", "Upload Users", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                txtFilePath.Text = string.Empty;
             }
         }
 
