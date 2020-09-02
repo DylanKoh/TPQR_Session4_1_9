@@ -33,7 +33,9 @@ namespace TPQR_Session4_1_9
 
         private void btnTrackOverall_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            (new TrackOverall()).ShowDialog();
+            Close();
         }
     }
 }
