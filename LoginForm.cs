@@ -13,6 +13,7 @@ namespace TPQR_Session4_1_9
 {
     public partial class LoginForm : Form
     {
+        DateTime endTime = new DateTime(2020, 07, 26, 09, 00, 00);
         public LoginForm()
         {
             InitializeComponent();
@@ -97,6 +98,22 @@ namespace TPQR_Session4_1_9
             {
                 txtFilePath.Text = ofd.FileName;
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            Timer timer = new Timer();
+            timer.Interval = 500;
+            timer.Tick += Timer_Tick;
+            TimeSpan ts = endTime.Subtract(DateTime.Now);
+            lblTimer.Text = $"{ts.ToString("d' Days 'h' Hours 'm' Minutes 's' Seconds'")} till event starts!";
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan ts = endTime.Subtract(DateTime.Now);
+            lblTimer.Text = $"{ts.ToString("d' Days 'h' Hours 'm' Minutes 's' Seconds'")} till event starts!";
         }
     }
 }
