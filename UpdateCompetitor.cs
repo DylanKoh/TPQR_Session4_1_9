@@ -425,7 +425,7 @@ namespace TPQR_Session4_1_9
                 context.SaveChanges();
                 MessageBox.Show("Training progress updated successfully!", "Update training progress",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UpdateCompetitor_Load(null, null);
+                LoadData(0);
             }
         }
     }

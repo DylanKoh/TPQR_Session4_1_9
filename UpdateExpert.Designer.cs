@@ -143,6 +143,7 @@
             this.rbName.TabStop = true;
             this.rbName.Text = "Name";
             this.rbName.UseVisualStyleBackColor = true;
+            this.rbName.CheckedChanged += new System.EventHandler(this.rbName_CheckedChanged);
             // 
             // rbProgress
             // 
@@ -154,6 +155,7 @@
             this.rbProgress.TabStop = true;
             this.rbProgress.Text = "Progress";
             this.rbProgress.UseVisualStyleBackColor = true;
+            this.rbProgress.CheckedChanged += new System.EventHandler(this.rbProgress_CheckedChanged);
             // 
             // cbSkill
             // 
@@ -195,6 +197,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(986, 220);
             this.dataGridView1.TabIndex = 15;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // btnUpdate
             // 
@@ -204,6 +207,7 @@
             this.btnUpdate.TabIndex = 16;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // Column1
             // 
