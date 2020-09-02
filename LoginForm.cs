@@ -13,7 +13,7 @@ namespace TPQR_Session4_1_9
 {
     public partial class LoginForm : Form
     {
-        DateTime endTime = new DateTime(2020, 07, 26, 09, 00, 00);
+        DateTime endTime = new DateTime(2020, 10, 1, 09, 00, 00);
         public LoginForm()
         {
             InitializeComponent();
