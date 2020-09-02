@@ -103,6 +103,12 @@
     <Compile Include="Skill.cs">
       <DependentUpon>Session4Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="TrackCompetitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackCompetitor.Designer.cs">
+      <DependentUpon>TrackCompetitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrackOverall.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TrackCompetitor.resx">
+      <DependentUpon>TrackCompetitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TrackOverall.resx">
       <DependentUpon>TrackOverall.cs</DependentUpon>
     </EmbeddedResource>

@@ -74,7 +74,7 @@ namespace TPQR_Session4_1_9
                         if (findUser.userTypeIdFK == 2)
                         {
                             Hide();
-                            (new ExpertMain()).ShowDialog();
+                            (new ExpertMain(findUser.skillIdFK)).ShowDialog();
                             Close();
                         }
                         else if (findUser.userTypeIdFK == 3)

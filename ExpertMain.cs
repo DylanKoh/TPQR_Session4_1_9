@@ -12,15 +12,24 @@ namespace TPQR_Session4_1_9
 {
     public partial class ExpertMain : Form
     {
-        public ExpertMain()
+        int _skillID = 0;
+        public ExpertMain(int skillID)
         {
             InitializeComponent();
+            _skillID = skillID;
         }
 
         private void btnUpdateExpertRecords_Click(object sender, EventArgs e)
         {
             Hide();
-            (new UpdateExpert()).ShowDialog();
+            (new UpdateExpert(_skillID)).ShowDialog();
+            Close();
+        }
+
+        private void btnTrackCompetitors_Click(object sender, EventArgs e)
+        {
+            Hide();
+            (new TrackCompetitor(_skillID)).ShowDialog();
             Close();
         }
     }

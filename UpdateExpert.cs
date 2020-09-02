@@ -12,15 +12,17 @@ namespace TPQR_Session4_1_9
 {
     public partial class UpdateExpert : Form
     {
-        public UpdateExpert()
+        int _skillID = 0;
+        public UpdateExpert(int skillID)
         {
             InitializeComponent();
+            _skillID = skillID;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             Hide();
-            (new ExpertMain()).ShowDialog();
+            (new ExpertMain(_skillID)).ShowDialog();
             Close();
         }
 
