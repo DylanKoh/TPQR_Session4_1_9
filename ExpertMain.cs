@@ -16,5 +16,12 @@ namespace TPQR_Session4_1_9
         {
             InitializeComponent();
         }
+
+        private void btnUpdateExpertRecords_Click(object sender, EventArgs e)
+        {
+            Hide();
+            (new UpdateExpert()).ShowDialog();
+            Close();
+        }
     }
 }
